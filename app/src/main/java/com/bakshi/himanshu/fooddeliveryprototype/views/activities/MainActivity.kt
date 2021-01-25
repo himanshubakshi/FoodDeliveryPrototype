@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bakshi.himanshu.fooddeliveryprototype.R
-import com.bakshi.himanshu.fooddeliveryprototype.adapters.HeaderViewPagerAdapter
+import com.bakshi.himanshu.fooddeliveryprototype.adapters.WeeklyOffersViewPagerAdapter
 import com.bakshi.himanshu.fooddeliveryprototype.databinding.ActivityMainBinding
 import com.bakshi.himanshu.fooddeliveryprototype.viewmodels.WeeklyOffersViewModel
 
@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
     // Adapter for header view pager
-    val weeklyOffersViewPagerAdapter = HeaderViewPagerAdapter()
+    val weeklyOffersViewPagerAdapter = WeeklyOffersViewPagerAdapter()
 
     // View Model
     private lateinit var weeklyOffersViewModel: WeeklyOffersViewModel
@@ -53,10 +53,10 @@ class MainActivity : AppCompatActivity() {
 
     // fetch latest offers
     private fun getOffers() {
-        weeklyOffersViewModel.getWeeklyOffers(this).observe(this, Observer {
-            Log.d(TAG, "getOffers - weekly offers updated, offers: ${it.toString()}")
+        weeklyOffersViewModel.getWeeklyOffers(this, true).observe(this, Observer { offers ->
+            Log.d(TAG, "getOffers - weekly offers updated, offers: $offers")
 
-            // TODO: hook up view updates
+            weeklyOffersViewPagerAdapter.update(offers)
         })
     }
 }

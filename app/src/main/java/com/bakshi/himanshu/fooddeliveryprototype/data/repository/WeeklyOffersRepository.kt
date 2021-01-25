@@ -19,11 +19,11 @@ class WeeklyOffersRepository(private val weeklyOffersApi: WeeklyOffersApi) {
 
     val TAG = WeeklyOffersRepository::class.java.simpleName
 
-    private val weeklyOffersLiveData = MutableLiveData<List<WeeklyOffer>?>()
+    private val weeklyOffersLiveData = MutableLiveData<List<WeeklyOffer>>()
     private var getWeeklyOffersJob: Job? = null
 
     // Returns a LiveData object with a list of weekly offers
-    fun getWeeklyOffers(context: Context, useMocks: Boolean = false): LiveData<List<WeeklyOffer>?> {
+    fun getWeeklyOffers(context: Context, useMocks: Boolean = false): LiveData<List<WeeklyOffer>> {
 
         if (useMocks) {
             getMockOffers(context)
@@ -91,7 +91,7 @@ class WeeklyOffersRepository(private val weeklyOffersApi: WeeklyOffersApi) {
     }
 
 
-    private fun onOffersDownloaded(offers: List<WeeklyOffer>?) {
+    private fun onOffersDownloaded(offers: List<WeeklyOffer>) {
         weeklyOffersLiveData.postValue(offers)
     }
 

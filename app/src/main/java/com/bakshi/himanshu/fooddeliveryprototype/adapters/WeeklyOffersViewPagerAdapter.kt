@@ -7,16 +7,15 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bakshi.himanshu.fooddeliveryprototype.R
+import com.bakshi.himanshu.fooddeliveryprototype.data.models.WeeklyOffer
 import com.bakshi.himanshu.fooddeliveryprototype.databinding.HeaderItemViewBinding
+import com.bumptech.glide.Glide
 
 // Adapter for header view pager
-class HeaderViewPagerAdapter : RecyclerView.Adapter<HeaderViewPagerAdapter.HeaderViewHolder>() {
+class WeeklyOffersViewPagerAdapter :
+    RecyclerView.Adapter<WeeklyOffersViewPagerAdapter.HeaderViewHolder>() {
 
-    private val imagesArray = intArrayOf(
-        R.drawable.header_banner,
-        R.drawable.header_banner,
-        R.drawable.header_banner
-    )
+    private val weeklyOffers: MutableList<WeeklyOffer> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeaderViewHolder {
         val binding = DataBindingUtil.inflate<HeaderItemViewBinding>(
@@ -27,21 +26,35 @@ class HeaderViewPagerAdapter : RecyclerView.Adapter<HeaderViewPagerAdapter.Heade
     }
 
     override fun getItemCount(): Int {
-        return 3
+        return weeklyOffers.size
     }
 
     override fun onBindViewHolder(holder: HeaderViewHolder, position: Int) {
-        holder.bind(position, imagesArray[position])
+        holder.bind(weeklyOffers[position])
+    }
+
+    fun update(offers: List<WeeklyOffer>) {
+        weeklyOffers.apply {
+            clear()
+            addAll(offers)
+        }
+        notifyDataSetChanged()
     }
 
     class HeaderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(position: Int, imageDrawable: Int) {
+        fun bind(weeklyOffer: WeeklyOffer) {
 
-            if (imageDrawable != 0) {
-                getBinding()?.let { binding ->
-                    binding.imageView.setImageDrawable(
-                        AppCompatResources.getDrawable(itemView.context, imageDrawable)
-                    )
+            getBinding()?.let { binding ->
+                weeklyOffer.url?.let { imageUrl ->
+                    AppCompatResources.getDrawable(
+                        itemView.context,
+                        R.drawable.weekly_offer_error_banner
+                    )?.let { errorDrawable ->
+                        Glide.with(itemView.context).load(imageUrl)
+                            .error(errorDrawable)
+                            .placeholder(errorDrawable)
+                            .into(binding.imageView)
+                    }
                 }
             }
         }
