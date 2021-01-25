@@ -20,10 +20,33 @@
                 android:layout_height="@dimen/collapsing_toolbar_height"
                 app:layout_scrollFlags="enterAlwaysCollapsed|scroll">
 
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/headerViewPager"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content">
+
+                    <!-- TODO: Styling -->
+                    <TextView
+                        android:layout_width="@dimen/app_title_width"
+                        android:layout_height="@dimen/base_0dp"
+                        android:layout_marginTop="@dimen/base_20dp"
+                        android:elevation="@dimen/base_1dp"
+                        android:text="@string/landing_activity_title"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/landing_activity_title_size"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/headerViewPager"
+                        android:layout_width="@dimen/base_0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
         </com.google.android.material.appbar.AppBarLayout>

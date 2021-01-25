@@ -3,4 +3,5 @@
     <string name="collapsing_toolbar">Collapsing toolbar</string>
     <string name="subtitle">Subtitle</string>
     <string name="title">Title</string>
+    <string name="landing_activity_title">Rocket Food Delivery</string>
 </resources>
