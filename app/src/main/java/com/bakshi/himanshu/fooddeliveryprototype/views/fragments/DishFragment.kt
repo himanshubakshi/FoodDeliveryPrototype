@@ -28,9 +28,12 @@ class DishFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_dish, container, false)
-
-        initViews()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViews()
     }
 
     private fun initViews() {
@@ -38,7 +41,7 @@ class DishFragment : Fragment() {
     }
 
     companion object {
-      
+
         @JvmStatic
         fun newInstance(dishType: String) =
             DishFragment().apply {

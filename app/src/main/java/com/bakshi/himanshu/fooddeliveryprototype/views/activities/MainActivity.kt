@@ -8,12 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bakshi.himanshu.fooddeliveryprototype.R
-import com.bakshi.himanshu.fooddeliveryprototype.adapters.DishesViewPagerAdapter
 import com.bakshi.himanshu.fooddeliveryprototype.adapters.WeeklyOffersViewPagerAdapter
 import com.bakshi.himanshu.fooddeliveryprototype.databinding.ActivityMainBinding
 import com.bakshi.himanshu.fooddeliveryprototype.viewmodels.DishesViewModel
 import com.bakshi.himanshu.fooddeliveryprototype.viewmodels.WeeklyOffersViewModel
-import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     // Adapter for header view pager
     val weeklyOffersViewPagerAdapter = WeeklyOffersViewPagerAdapter()
-    val dishesTabAdapter = DishesViewPagerAdapter(this)
+//    val dishesTabAdapter = DishesViewPagerAdapter(this)
 
     // View Model
     private lateinit var weeklyOffersViewModel: WeeklyOffersViewModel
@@ -44,26 +42,6 @@ class MainActivity : AppCompatActivity() {
 
         // Setup offers header
         setupWeeklyOffers()
-
-        // Setup Content section
-        setupDishesSection()
-    }
-
-    private fun setupDishesSection() {
-        // Setup view pager
-        binding.dishesViewPager.adapter = dishesTabAdapter
-
-        // Connect viewPager and the tab layout
-        TabLayoutMediator(binding.dishesTabLayout, binding.dishesViewPager, true) { tab, position ->
-            tab.text = dishesTabAdapter.getDishTypeAtPosition(position)
-        }.attach()
-
-        // Fetch dishes
-        dishesViewModel.getDishes(this, false).observe(this, Observer {
-            Log.d(TAG, "getDishes - dishes updated, dishes: $it")
-            // update tabs
-            dishesTabAdapter.update(dishesViewModel.getDishTypes(it))
-        })
     }
 
     private fun setupWeeklyOffers() {
