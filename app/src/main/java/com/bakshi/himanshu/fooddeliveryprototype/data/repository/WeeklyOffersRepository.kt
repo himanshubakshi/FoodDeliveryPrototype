@@ -78,7 +78,7 @@ class WeeklyOffersRepository(private val weeklyOffersApi: WeeklyOffersApi) {
         var offers: List<WeeklyOffer>? = null
         try {
             val typeToken = object : TypeToken<List<WeeklyOffer>>() {}.type
-            offers = Gson().fromJson<List<WeeklyOffer>>(offersJson, typeToken)
+            offers = Gson().fromJson(offersJson, typeToken)
         } catch (e: JsonParseException) {
             Log.e(TAG, "getOffersFromJson - Enable to parse mock weekly offers json: ${e.message}")
             onError(e)
@@ -96,7 +96,7 @@ class WeeklyOffersRepository(private val weeklyOffersApi: WeeklyOffersApi) {
     }
 
     private fun onError(e: Exception) {
-        Log.e(TAG, "getMockOffers - Unable to get weekly offers, exception: ${e.message}")
+        Log.e(TAG, "onError - Unable to get weekly offers, exception: ${e.message}")
     }
 
     fun clear() {

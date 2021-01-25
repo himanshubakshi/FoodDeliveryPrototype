@@ -5,6 +5,6 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface WeeklyOffersApi {
-    @GET("b/COY6")
+    @GET("b/XKY9")
     suspend fun getOffers(): Response<List<WeeklyOffer>>
 }

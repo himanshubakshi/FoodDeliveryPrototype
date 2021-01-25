@@ -1,11 +1,10 @@
 package com.bakshi.himanshu.fooddeliveryprototype.data.service
 
 import com.bakshi.himanshu.fooddeliveryprototype.data.interfaces.DishesApi
-import com.bakshi.himanshu.fooddeliveryprototype.data.interfaces.WeeklyOffersApi
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object WeeklyOffersService {
+object DishesService {
 
     val baseUrl = "https://jsonkeeper.com"
 
@@ -14,5 +13,5 @@ object WeeklyOffersService {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun getService(): WeeklyOffersApi = retrofit.create(WeeklyOffersApi::class.java)
+    fun getService(): DishesApi = retrofit.create(DishesApi::class.java)
 }
