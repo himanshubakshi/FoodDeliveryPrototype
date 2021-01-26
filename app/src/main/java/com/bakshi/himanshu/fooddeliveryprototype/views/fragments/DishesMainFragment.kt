@@ -41,12 +41,13 @@ class DishesMainFragment : Fragment() {
 
     private fun setupDishesSection() {
         // Setup view pager
-        dishesTabAdapter = DishesViewPagerAdapter(this)
+        var dishesTabAdapter: DishesViewPagerAdapter? = null
+        dishesTabAdapter = DishesViewPagerAdapter(this.requireActivity())
         binding.dishesViewPager.adapter = dishesTabAdapter
 
         // Connect viewPager and the tab layout
         TabLayoutMediator(binding.dishesTabLayout, binding.dishesViewPager, true) { tab, position ->
-            tab.text = dishesTabAdapter?.getDishTypeAtPosition(position)
+            tab.text = dishesTabAdapter.getDishTypeAtPosition(position)
         }.attach()
 
         // Fetch dishes
@@ -55,7 +56,7 @@ class DishesMainFragment : Fragment() {
                 dishesViewModel.getDishes(it, true).observe(this, Observer {
                     Log.d(TAG, "getDishes - dishes updated, dishes: $it")
                     // update tabs
-                    dishesTabAdapter?.update(dishesViewModel.getDishTypes(it))
+                    dishesTabAdapter.update(dishesViewModel.getDishTypes(it))
                 })
             }
         }

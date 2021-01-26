@@ -1,10 +1,11 @@
 package com.bakshi.himanshu.fooddeliveryprototype.adapters
 
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.bakshi.himanshu.fooddeliveryprototype.views.fragments.DishesListFragment
 
-class DishesViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+class DishesViewPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
 
     private val dishes: MutableList<String> = mutableListOf()
 
