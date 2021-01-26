@@ -29,7 +29,7 @@
       "value": 50.99,
       "unit": "usd"
     },
-    "imageUrl": "http://www.pngall.com/wp-content/uploads/4/Pepperoni-Dominos-Pizza-PNG-Free-Download.png"
+    "imageUrl": "https://freepngimg.com/thumb/pizza/2-pizza-png-image.png"
   },
   {
     "name": "Deluxe",
@@ -73,7 +73,7 @@
       "value": 60,
       "unit": "usd"
     },
-    "imageUrl": "http://www.pngall.com/wp-content/uploads/4/Dominos-Pizza-PNG-Pic.png"
+    "imageUrl": "https://freepngimg.com/thumb/pizza/1-pizza-png-image.png"
   },
   {
     "name": "California",
@@ -109,7 +109,7 @@
       "value": 29.99,
       "unit": "usd"
     },
-    "imageUrl": "http://www.pngall.com/wp-content/uploads/2016/04/Sushi-PNG-Image.png"
+    "imageUrl": "https://freepngimg.com/thumb/pizza/6-pizza-png-image.png"
   },
   {
     "name": "Sushi2",
@@ -145,6 +145,88 @@
       "value": 49.99,
       "unit": "usd"
     },
-    "imageUrl": "http://www.pngall.com/wp-content/uploads/2016/04/Sushi-Transparent.png"
+    "imageUrl": "https://freepngimg.com/thumb/pizza/6-pizza-png-image.png"
+  },
+  {
+    "name": "Double Cheese",
+    "id": "11",
+    "weight": {
+      "value": 220,
+      "unit": "grams"
+    },
+    "size": {
+      "value": 35,
+      "unit": "cm"
+    },
+    "type": "pizza",
+    "ingredients": [
+      {
+        "name": "Chicken",
+        "type": "pizzaTopping",
+        "isNonVeg": "true",
+        "id": "1"
+      },
+      {
+        "name": "Mozeraella",
+        "type": "pizzaTopping",
+        "isNonVeg": "false",
+        "id": "2"
+      },
+      {
+        "name": "Jalapeno",
+        "type": "pizzaTopping",
+        "isNonVeg": "false",
+        "id": "6"
+      }
+    ],
+    "cost": {
+      "value": 54.99,
+      "unit": "usd"
+    },
+    "imageUrl": "https://freepngimg.com/thumb/pizza/5-pizza-png-image.png"
+  },
+  {
+    "name": "Deluxe Veggie",
+    "id": "12",
+    "weight": {
+      "value": 21,
+      "unit": "grams"
+    },
+    "size": {
+      "value": 35,
+      "unit": "cm"
+    },
+    "type": "pizza",
+    "ingredients": [
+      {
+        "name": "Tomato",
+        "type": "pizzaTopping",
+        "isNonVeg": "true",
+        "id": "11"
+      },
+      {
+        "name": "Mozeraella",
+        "type": "pizzaTopping",
+        "isNonVeg": "false",
+        "id": "2"
+      },
+      {
+        "name": "Onion",
+        "type": "pizzaTopping",
+        "isNonVeg": "false",
+        "id": "3"
+      },
+      {
+        "name": "Capsicum",
+        "type": "pizzaTopping",
+        "isNonVeg": "false",
+        "id": "4"
+      }
+    ],
+    "cost": {
+      "value": 69.99,
+      "unit": "usd"
+    },
+    "imageUrl": "https://freepngimg.com/thumb/pizza/6-pizza-png-image.png"
   }
 ]

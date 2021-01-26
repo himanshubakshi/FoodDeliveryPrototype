@@ -11,14 +11,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bakshi.himanshu.fooddeliveryprototype.R
 import com.bakshi.himanshu.fooddeliveryprototype.adapters.DishesViewPagerAdapter
-import com.bakshi.himanshu.fooddeliveryprototype.databinding.FragmentDishesBinding
+import com.bakshi.himanshu.fooddeliveryprototype.databinding.DishesMainFragmentBinding
 import com.bakshi.himanshu.fooddeliveryprototype.viewmodels.DishesViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 
-class DishesFragment : Fragment() {
-    val TAG = DishesFragment::class.java.simpleName
+// Root fragment to host the viewpager and the tab view
+class DishesMainFragment : Fragment() {
+    val TAG = DishesMainFragment::class.java.simpleName
 
-    lateinit var binding: FragmentDishesBinding
+    lateinit var binding: DishesMainFragmentBinding
     var dishesTabAdapter: DishesViewPagerAdapter? = null
     private var dishesViewModel: DishesViewModel? = null
 
@@ -27,7 +28,7 @@ class DishesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_dishes, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.dishes_main_fragment, container, false)
         dishesViewModel = activity?.let { ViewModelProvider(it).get(DishesViewModel::class.java) }
 
         return binding.root
@@ -51,7 +52,7 @@ class DishesFragment : Fragment() {
         // Fetch dishes
         context?.let {
             dishesViewModel?.let { dishesViewModel ->
-                dishesViewModel.getDishes(it, false).observe(this, Observer {
+                dishesViewModel.getDishes(it, true).observe(this, Observer {
                     Log.d(TAG, "getDishes - dishes updated, dishes: $it")
                     // update tabs
                     dishesTabAdapter?.update(dishesViewModel.getDishTypes(it))

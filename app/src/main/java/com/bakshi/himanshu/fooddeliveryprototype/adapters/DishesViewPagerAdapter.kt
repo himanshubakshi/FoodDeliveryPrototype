@@ -2,7 +2,7 @@ package com.bakshi.himanshu.fooddeliveryprototype.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.bakshi.himanshu.fooddeliveryprototype.views.fragments.DishFragment
+import com.bakshi.himanshu.fooddeliveryprototype.views.fragments.DishesListFragment
 
 class DishesViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
@@ -21,7 +21,7 @@ class DishesViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment
     }
 
     override fun createFragment(position: Int): Fragment {
-        return DishFragment.newInstance(dishes[position])
+        return DishesListFragment.newInstance(dishes[position])
     }
 
     fun getDishTypeAtPosition(position: Int): String? {
