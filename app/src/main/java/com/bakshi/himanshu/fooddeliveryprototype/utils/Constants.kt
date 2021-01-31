@@ -6,5 +6,6 @@ object Constants {
     const val RESOURCE_NOT_FOUND = "resourceNotFound"
 
     const val DISH_TYPE = "dishType"
+    const val ADDED_TO_CART_FORMAT = "Added +%s"
 
 }
