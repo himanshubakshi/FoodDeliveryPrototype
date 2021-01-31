@@ -11,8 +11,7 @@ import com.bakshi.himanshu.fooddeliveryprototype.R
 import com.bakshi.himanshu.fooddeliveryprototype.adapters.DishesViewPagerAdapter
 import com.bakshi.himanshu.fooddeliveryprototype.adapters.WeeklyOffersViewPagerAdapter
 import com.bakshi.himanshu.fooddeliveryprototype.databinding.ActivityMainBinding
-import com.bakshi.himanshu.fooddeliveryprototype.viewmodels.DishesViewModel
-import com.bakshi.himanshu.fooddeliveryprototype.viewmodels.WeeklyOffersViewModel
+import com.bakshi.himanshu.fooddeliveryprototype.viewmodels.MainViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
@@ -27,14 +26,12 @@ class MainActivity : AppCompatActivity() {
     val dishesTabAdapter = DishesViewPagerAdapter(this)
 
     // View Model
-    private lateinit var weeklyOffersViewModel: WeeklyOffersViewModel
-    private lateinit var dishesViewModel: DishesViewModel
+    private lateinit var mainViewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        weeklyOffersViewModel = ViewModelProvider(this).get(WeeklyOffersViewModel::class.java)
-        dishesViewModel = ViewModelProvider(this).get(DishesViewModel::class.java)
+        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         setupViews()
     }
 
@@ -69,11 +66,12 @@ class MainActivity : AppCompatActivity() {
 
     // fetch latest offers
     private fun getOffers() {
-        weeklyOffersViewModel.getWeeklyOffers(this, true).observe(this, Observer { offers ->
-            Log.d(TAG, "getOffers - weekly offers updated, offers: $offers")
+        mainViewModel.weeklyOffersViewModel.getWeeklyOffers(this, true)
+            .observe(this, Observer { offers ->
+                Log.d(TAG, "getOffers - weekly offers updated, offers: $offers")
 
-            weeklyOffersViewPagerAdapter.update(offers)
-        })
+                weeklyOffersViewPagerAdapter.update(offers)
+            })
     }
 
 
@@ -87,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         }.attach()
 
         // Fetch dishes
-        dishesViewModel.let { dishesViewModel ->
+        mainViewModel.dishesViewModel.let { dishesViewModel ->
             dishesViewModel.getDishes(this, true).observe(this, Observer {
                 Log.d(TAG, "getDishes - dishes updated, dishes: $it")
                 // update tabs
