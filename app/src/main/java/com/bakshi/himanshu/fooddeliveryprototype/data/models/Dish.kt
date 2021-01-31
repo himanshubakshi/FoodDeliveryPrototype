@@ -14,10 +14,17 @@ data class Dish(
     val priceLabel
         get() = "${cost?.value} ${cost?.unit}"
 
-    fun getIngredients() {
+    val ingredientsLabel: String
+        get() {
+            var result = ""
+            ingredients?.forEach {
+                result += "${it.name}, "
+            }
 
-    }
+            return result.trimEnd(' ', ',')
+        }
 }
+
 
 data class GenericValueClass(
     val value: Int,

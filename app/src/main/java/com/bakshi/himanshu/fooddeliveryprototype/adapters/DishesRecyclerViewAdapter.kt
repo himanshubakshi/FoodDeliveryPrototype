@@ -54,6 +54,8 @@ class DishesRecyclerViewAdapter(private val mainViewModel: MainViewModel) :
             getBinding()?.let { binding ->
 
                 binding.name.text = dish.name
+                binding.ingredients.text = dish.ingredientsLabel
+
                 Glide.with(itemView.context).load(dish.imageUrl)
                     .error(R.drawable.weekly_offer_error_banner)
                     .placeholder(R.drawable.weekly_offer_error_banner)
@@ -64,6 +66,7 @@ class DishesRecyclerViewAdapter(private val mainViewModel: MainViewModel) :
                     dish.priceLabel,
                     R.drawable.add_to_cart_default
                 )
+
                 binding.addToCart.setOnClickListener {
                     mainViewModel.addToCart(dish)
 

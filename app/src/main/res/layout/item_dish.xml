@@ -29,20 +29,22 @@
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="40dp"
+                android:layout_margin="@dimen/base_20dp"
                 android:textSize="@dimen/dish_name_size"
                 app:layout_constraintBottom_toBottomOf="@id/ingredients"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/dishLogo"
+                app:layout_constraintTop_toBottomOf="@id/ingredients"
                 tools:text="@string/app_name" />
 
             <TextView
                 android:id="@+id/ingredients"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/base_0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/base_20dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/base_20dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                app:layout_constraintEnd_toStartOf="@id/addToCart"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/name" />
 
