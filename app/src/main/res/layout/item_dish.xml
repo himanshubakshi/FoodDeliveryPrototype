@@ -5,7 +5,7 @@
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/base_20dp"
         app:cardCornerRadius="@dimen/base_20dp">
 
@@ -15,10 +15,12 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/dishLogo"
-                android:layout_width="@dimen/dish_logo_width"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/dish_logo_height"
-                android:layout_margin="@dimen/base_10dp"
-                app:layout_constraintBottom_toBottomOf="@id/name"
+                android:background="@drawable/dish_background"
+                android:scaleType="centerInside"
+                android:padding="@dimen/base_20dp"
+                app:layout_constraintBottom_toTopOf="@id/name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
