@@ -7,8 +7,12 @@ data class Dish(
     val imageUrl: String?,
     val weight: GenericValueClass?,
     val size: GenericValueClass?,
-    val cost: Cost?
-)
+    val cost: Cost?,
+    val defaultCartQuantity: Int = 1,
+    val ingredients: List<Ingredient>?
+) {
+    fun priceLabel() = "${cost?.value} ${cost?.unit}"
+}
 
 data class GenericValueClass(
     val value: Int,
@@ -18,4 +22,12 @@ data class GenericValueClass(
 data class Cost(
     val value: Float,
     val unit: String?
+)
+
+data class Ingredient(
+    val name: String?,
+    val id: String?,
+    val type: String?,
+    val isSpicy: Boolean = false,
+    val isNonVeg: Boolean = false
 )

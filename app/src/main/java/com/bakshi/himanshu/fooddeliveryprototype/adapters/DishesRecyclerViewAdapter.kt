@@ -48,6 +48,11 @@ class DishesRecyclerViewAdapter : RecyclerView.Adapter<DishesRecyclerViewAdapter
                     .error(R.drawable.weekly_offer_error_banner)
                     .placeholder(R.drawable.weekly_offer_error_banner)
                     .into(binding.dishLogo)
+
+                binding.addToCart.text = dish.priceLabel()
+                binding.addToCart.setOnClickListener {
+
+                }
             }
         }
     }

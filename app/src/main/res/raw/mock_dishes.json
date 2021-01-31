@@ -67,6 +67,13 @@
         "type": "pizzaTopping",
         "isNonVeg": "false",
         "id": "4"
+      },
+      {
+        "name": "Paprika",
+        "type": "pizzaTopping",
+        "isNonVeg": "false",
+        "isSpicy": true,
+        "id": "4"
       }
     ],
     "cost": {
@@ -133,7 +140,8 @@
       {
         "name": "Mali spicy salmon",
         "type": "sushiIngredient",
-        "isNonVeg": "true"
+        "isNonVeg": "true",
+        "isSpicy": true
       },
       {
         "name": "Rice",
@@ -230,7 +238,7 @@
     "imageUrl": "https://freepngimg.com/thumb/pizza/6-pizza-png-image.png"
   },
   {
-    "name": "Ice Tea",
+    "name": "Pepsi",
     "id": "101",
     "weight": {
       "value": 500,

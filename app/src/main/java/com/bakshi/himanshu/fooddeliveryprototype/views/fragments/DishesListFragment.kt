@@ -56,7 +56,7 @@ class DishesListFragment : Fragment() {
 
         dishesViewModel?.let { dishesViewModel ->
             context?.let { context ->
-                dishesViewModel.getDishes(context, true).observe(this, Observer { dishesList ->
+                dishesViewModel.getDishes(context, true).observe(viewLifecycleOwner, Observer { dishesList ->
                     Log.d(TAG, "getDishes - dishes updated, dishes: $dishesList")
                     // update tabs
                     dishesRecyclerViewAdapter.update(dishesList.filter { it.type == dishType })
