@@ -50,7 +50,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupWeeklyOffers() {
         // Setup view pager
-        binding.headerViewPager.adapter = weeklyOffersViewPagerAdapter
+        binding.offersViewPager.adapter = weeklyOffersViewPagerAdapter
+
+        TabLayoutMediator(binding.offersTabLayout, binding.offersViewPager, true) { tab, position ->
+        }.attach()
 
         // fetch offers
         getOffers()
