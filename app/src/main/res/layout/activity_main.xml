@@ -32,6 +32,7 @@
                         android:elevation="@dimen/base_1dp"
                         android:text="@string/landing_activity_title"
                         android:textAlignment="center"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/landing_activity_title_size"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
