@@ -61,7 +61,7 @@ class DishesRecyclerViewAdapter(private val mainViewModel: MainViewModel) :
 
                 updateCartButton(
                     binding.addToCart,
-                    dish.priceLabel(),
+                    dish.priceLabel,
                     R.drawable.add_to_cart_default
                 )
                 binding.addToCart.setOnClickListener {
@@ -103,7 +103,7 @@ class DishesRecyclerViewAdapter(private val mainViewModel: MainViewModel) :
                     delay(1000)
                     updateCartButton(
                         it.addToCart,
-                        dish.priceLabel(),
+                        dish.priceLabel,
                         R.drawable.add_to_cart_default
                     )
 

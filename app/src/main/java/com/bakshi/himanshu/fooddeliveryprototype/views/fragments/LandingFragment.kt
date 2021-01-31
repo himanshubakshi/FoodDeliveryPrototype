@@ -78,8 +78,9 @@ class LandingFragment : Fragment() {
 
     // fetch latest offers
     private fun getOffers() {
+
         context?.let {
-            mainViewModel.weeklyOffersViewModel.getWeeklyOffers(it, true)
+            mainViewModel.getWeeklyOffers(it)
                 .observe(viewLifecycleOwner, Observer { offers ->
                     Log.d(TAG, "getOffers - weekly offers updated, offers: $offers")
 
@@ -99,7 +100,7 @@ class LandingFragment : Fragment() {
 
         // Fetch dishes
         context?.let {
-            mainViewModel.dishesViewModel.getDishes(it, true).observe(viewLifecycleOwner, Observer {
+            mainViewModel.getDishes(it).observe(viewLifecycleOwner, Observer {
                 Log.d(TAG, "getDishes - dishes updated, dishes: $it")
                 // update tabs
                 dishesViewPagerAdapter?.update(mainViewModel.dishesViewModel.getDishTypes(it))

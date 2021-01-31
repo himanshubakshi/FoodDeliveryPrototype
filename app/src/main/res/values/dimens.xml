@@ -16,5 +16,6 @@
     <dimen name="dish_logo_height">260dp</dimen>
     <dimen name="dish_name_size">20sp</dimen>
     <dimen name="base_60dp">60dp</dimen>
+    <dimen name="bodyTextStyle">20sp</dimen>
 
 </resources>

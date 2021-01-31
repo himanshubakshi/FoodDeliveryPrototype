@@ -63,7 +63,7 @@ class DishesListFragment : Fragment() {
         }
 
         context?.let { context ->
-            mainViewModel.dishesViewModel.getDishes(context, true)
+            mainViewModel.getDishes(context)
                 .observe(viewLifecycleOwner, Observer { dishesList ->
                     Log.d(TAG, "getDishes - dishes updated, dishes: $dishesList")
                     // update tabs

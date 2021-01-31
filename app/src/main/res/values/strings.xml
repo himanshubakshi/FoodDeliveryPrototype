@@ -3,4 +3,5 @@
 
     <string name="landing_activity_title">Rocket Food Delivery</string>
     <string name="dishes_placeholder">Dishes placeholder</string>
+    <string name="under_construction">This screen is under construction</string>
 </resources>

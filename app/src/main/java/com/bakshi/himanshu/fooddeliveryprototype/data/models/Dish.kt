@@ -11,7 +11,12 @@ data class Dish(
     val minimumCartQuantity: Int,
     val ingredients: List<Ingredient>?
 ) {
-    fun priceLabel() = "${cost?.value} ${cost?.unit}"
+    val priceLabel
+        get() = "${cost?.value} ${cost?.unit}"
+
+    fun getIngredients() {
+
+    }
 }
 
 data class GenericValueClass(
