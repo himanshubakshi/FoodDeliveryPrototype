@@ -7,14 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bakshi.himanshu.fooddeliveryprototype.R
 import com.bakshi.himanshu.fooddeliveryprototype.adapters.DishesRecyclerViewAdapter
 import com.bakshi.himanshu.fooddeliveryprototype.databinding.FragmentDishesListBinding
+import com.bakshi.himanshu.fooddeliveryprototype.interfaces.OnFragmentInteractionListener
 import com.bakshi.himanshu.fooddeliveryprototype.utils.Constants
-import com.bakshi.himanshu.fooddeliveryprototype.viewmodels.DishesViewModel
+import com.bakshi.himanshu.fooddeliveryprototype.viewmodels.MainViewModel
 
 // Fragment which shows a list dishes for the current selected tab
 class DishesListFragment : Fragment() {
@@ -24,7 +25,11 @@ class DishesListFragment : Fragment() {
 
     lateinit var binding: FragmentDishesListBinding
     private var dishesRecyclerViewAdapter = DishesRecyclerViewAdapter()
-    private var dishesViewModel: DishesViewModel? = null
+    private val mainViewModel: MainViewModel by activityViewModels()
+
+    // Fragment interaction listener
+    private val onFragmentInteractionListener: OnFragmentInteractionListener?
+        get() = activity as? OnFragmentInteractionListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +49,7 @@ class DishesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        dishesViewModel = activity?.let { ViewModelProvider(it).get(DishesViewModel::class.java) }
+
         initViews()
     }
 
@@ -54,15 +59,13 @@ class DishesListFragment : Fragment() {
             adapter = dishesRecyclerViewAdapter
         }
 
-        dishesViewModel?.let { dishesViewModel ->
-            context?.let { context ->
-                dishesViewModel.getDishes(context, true)
-                    .observe(viewLifecycleOwner, Observer { dishesList ->
-                        Log.d(TAG, "getDishes - dishes updated, dishes: $dishesList")
-                        // update tabs
-                        dishesRecyclerViewAdapter.update(dishesList.filter { it.type == dishType })
-                    })
-            }
+        context?.let { context ->
+            mainViewModel.dishesViewModel.getDishes(context, true)
+                .observe(viewLifecycleOwner, Observer { dishesList ->
+                    Log.d(TAG, "getDishes - dishes updated, dishes: $dishesList")
+                    // update tabs
+                    dishesRecyclerViewAdapter.update(dishesList.filter { it.type == dishType })
+                })
         }
     }
 

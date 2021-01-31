@@ -13,6 +13,7 @@ import com.bakshi.himanshu.fooddeliveryprototype.R
 import com.bakshi.himanshu.fooddeliveryprototype.adapters.DishesViewPagerAdapter
 import com.bakshi.himanshu.fooddeliveryprototype.adapters.WeeklyOffersViewPagerAdapter
 import com.bakshi.himanshu.fooddeliveryprototype.databinding.LandingFragmentBinding
+import com.bakshi.himanshu.fooddeliveryprototype.interfaces.OnFragmentInteractionListener
 import com.bakshi.himanshu.fooddeliveryprototype.viewmodels.MainViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -20,13 +21,17 @@ class LandingFragment : Fragment() {
 
     val TAG = LandingFragment::class.java.simpleName
 
+    // Data Binding
     lateinit var binding: LandingFragmentBinding
 
-    // Adapter for header view pager
-    val weeklyOffersViewPagerAdapter = WeeklyOffersViewPagerAdapter()
-    var dishesViewPagerAdapter: DishesViewPagerAdapter? = null
+    private val onFragmentInteractionListener: OnFragmentInteractionListener?
+        get() = activity as? OnFragmentInteractionListener
 
-    // View Model
+    // Adapter for header view pager
+    private val weeklyOffersViewPagerAdapter = WeeklyOffersViewPagerAdapter()
+    private var dishesViewPagerAdapter: DishesViewPagerAdapter? = null
+
+    // ViewModel
     private val mainViewModel by activityViewModels<MainViewModel>()
 
     override fun onCreateView(
@@ -49,7 +54,11 @@ class LandingFragment : Fragment() {
         // Setup offers header
         setupWeeklyOffers()
 
+        // Setup dishes section
         setupDishesSection()
+
+        // Setup card button
+        setupCart()
     }
 
     private fun setupWeeklyOffers() {
@@ -95,6 +104,12 @@ class LandingFragment : Fragment() {
                 // update tabs
                 dishesViewPagerAdapter?.update(mainViewModel.dishesViewModel.getDishTypes(it))
             })
+        }
+    }
+
+    private fun setupCart() {
+        binding.cart.setOnClickListener {
+            onFragmentInteractionListener?.goToCart()
         }
     }
 }

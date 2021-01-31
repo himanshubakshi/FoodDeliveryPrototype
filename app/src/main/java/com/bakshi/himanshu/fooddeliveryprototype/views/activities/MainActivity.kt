@@ -5,11 +5,14 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.bakshi.himanshu.fooddeliveryprototype.R
+import com.bakshi.himanshu.fooddeliveryprototype.data.models.Dish
 import com.bakshi.himanshu.fooddeliveryprototype.databinding.ActivityMainBinding
+import com.bakshi.himanshu.fooddeliveryprototype.interfaces.OnFragmentInteractionListener
 import com.bakshi.himanshu.fooddeliveryprototype.viewmodels.MainViewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnFragmentInteractionListener {
 
     val TAG = MainActivity::class.java.simpleName
 
@@ -35,4 +38,11 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
+    override fun goToCart() {
+        findNavController(R.id.navHostFragment).navigate(R.id.cartFragment)
+    }
+
+    override fun addToCart(dish: Dish) {
+        mainViewModel.cartViewModel.addToCart(dish)
+    }
 }
