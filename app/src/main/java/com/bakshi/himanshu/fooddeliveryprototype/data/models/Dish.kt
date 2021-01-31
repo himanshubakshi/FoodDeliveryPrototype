@@ -8,7 +8,7 @@ data class Dish(
     val weight: GenericValueClass?,
     val size: GenericValueClass?,
     val cost: Cost?,
-    val defaultCartQuantity: Int = 1,
+    val minimumCartQuantity: Int,
     val ingredients: List<Ingredient>?
 ) {
     fun priceLabel() = "${cost?.value} ${cost?.unit}"

@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bakshi.himanshu.fooddeliveryprototype.R
 import com.bakshi.himanshu.fooddeliveryprototype.data.models.Dish
 import com.bakshi.himanshu.fooddeliveryprototype.databinding.ItemDishBinding
+import com.bakshi.himanshu.fooddeliveryprototype.viewmodels.MainViewModel
 import com.bumptech.glide.Glide
 
-class DishesRecyclerViewAdapter : RecyclerView.Adapter<DishesRecyclerViewAdapter.DishViewHolder>() {
+class DishesRecyclerViewAdapter(private val mainViewModel: MainViewModel) :
+    RecyclerView.Adapter<DishesRecyclerViewAdapter.DishViewHolder>() {
 
     private val dishes: MutableList<Dish> = mutableListOf()
 
@@ -26,7 +28,7 @@ class DishesRecyclerViewAdapter : RecyclerView.Adapter<DishesRecyclerViewAdapter
         val binding: ItemDishBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context), R.layout.item_dish, parent, false
         )
-        return DishViewHolder(binding.root)
+        return DishViewHolder(binding.root, mainViewModel)
     }
 
     override fun getItemCount(): Int {
@@ -37,7 +39,8 @@ class DishesRecyclerViewAdapter : RecyclerView.Adapter<DishesRecyclerViewAdapter
         holder.bind(dishes[position])
     }
 
-    class DishViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class DishViewHolder(view: View, private val mainViewModel: MainViewModel) :
+        RecyclerView.ViewHolder(view) {
         private fun getBinding() = DataBindingUtil.getBinding<ItemDishBinding>(this.itemView)
 
         fun bind(dish: Dish) {
@@ -51,7 +54,7 @@ class DishesRecyclerViewAdapter : RecyclerView.Adapter<DishesRecyclerViewAdapter
 
                 binding.addToCart.text = dish.priceLabel()
                 binding.addToCart.setOnClickListener {
-
+                    mainViewModel.addToCart(dish)
                 }
             }
         }

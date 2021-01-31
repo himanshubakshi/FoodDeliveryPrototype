@@ -24,7 +24,10 @@ class DishesListFragment : Fragment() {
     private var dishType: String? = null
 
     lateinit var binding: FragmentDishesListBinding
-    private var dishesRecyclerViewAdapter = DishesRecyclerViewAdapter()
+    private val dishesRecyclerViewAdapter by lazy {
+        DishesRecyclerViewAdapter(mainViewModel)
+    }
+
     private val mainViewModel: MainViewModel by activityViewModels()
 
     // Fragment interaction listener

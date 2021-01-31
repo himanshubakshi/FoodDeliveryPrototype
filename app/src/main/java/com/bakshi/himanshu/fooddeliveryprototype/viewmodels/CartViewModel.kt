@@ -10,7 +10,7 @@ class CartViewModel : ViewModel() {
         if (cartMap.containsKey(dish)) {
             cartMap[dish]?.plus(1)
         } else {
-            cartMap[dish] = dish.defaultCartQuantity
+            cartMap[dish] = dish.minimumCartQuantity
         }
     }
 }

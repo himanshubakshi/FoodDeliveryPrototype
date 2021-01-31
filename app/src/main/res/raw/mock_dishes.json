@@ -29,7 +29,8 @@
       "value": 50.99,
       "unit": "usd"
     },
-    "imageUrl": "https://freepngimg.com/thumb/pizza/2-pizza-png-image.png"
+    "imageUrl": "https://freepngimg.com/thumb/pizza/2-pizza-png-image.png",
+    "minimumCartQuantity": 1
   },
   {
     "name": "Deluxe",
@@ -80,7 +81,8 @@
       "value": 60,
       "unit": "usd"
     },
-    "imageUrl": "https://freepngimg.com/thumb/pizza/1-pizza-png-image.png"
+    "imageUrl": "https://freepngimg.com/thumb/pizza/1-pizza-png-image.png",
+    "minimumCartQuantity": 1
   },
   {
     "name": "California",
@@ -116,7 +118,8 @@
       "value": 29.99,
       "unit": "usd"
     },
-    "imageUrl": "https://freepngimg.com/thumb/sushi/6-2-sushi-png-image.png"
+    "imageUrl": "https://freepngimg.com/thumb/sushi/6-2-sushi-png-image.png",
+    "minimumCartQuantity": 1
   },
   {
     "name": "Sushi2",
@@ -153,7 +156,8 @@
       "value": 49.99,
       "unit": "usd"
     },
-    "imageUrl": "https://freepngimg.com/thumb/sushi/4-2-sushi-transparent.png"
+    "imageUrl": "https://freepngimg.com/thumb/sushi/4-2-sushi-transparent.png",
+    "minimumCartQuantity": 1
   },
   {
     "name": "Double Cheese",
@@ -191,7 +195,8 @@
       "value": 54.99,
       "unit": "usd"
     },
-    "imageUrl": "https://freepngimg.com/thumb/pizza/5-pizza-png-image.png"
+    "imageUrl": "https://freepngimg.com/thumb/pizza/5-pizza-png-image.png",
+    "minimumCartQuantity": 1
   },
   {
     "name": "Deluxe Veggie",
@@ -235,7 +240,8 @@
       "value": 69.99,
       "unit": "usd"
     },
-    "imageUrl": "https://freepngimg.com/thumb/pizza/6-pizza-png-image.png"
+    "imageUrl": "https://freepngimg.com/thumb/pizza/6-pizza-png-image.png",
+    "minimumCartQuantity": 1
   },
   {
     "name": "Pepsi",
@@ -257,6 +263,7 @@
       "value": 5.99,
       "unit": "usd"
     },
-    "imageUrl": "https://freepngimg.com/thumb/pepsi_logo/32615-8-pepsi-logo-hd.png"
+    "imageUrl": "https://freepngimg.com/thumb/pepsi_logo/32615-8-pepsi-logo-hd.png",
+    "minimumCartQuantity": 2
   }
 ]
