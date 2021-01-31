@@ -109,7 +109,7 @@
       "value": 29.99,
       "unit": "usd"
     },
-    "imageUrl": "https://freepngimg.com/thumb/pizza/6-pizza-png-image.png"
+    "imageUrl": "https://freepngimg.com/thumb/sushi/6-2-sushi-png-image.png"
   },
   {
     "name": "Sushi2",
@@ -145,7 +145,7 @@
       "value": 49.99,
       "unit": "usd"
     },
-    "imageUrl": "https://freepngimg.com/thumb/pizza/6-pizza-png-image.png"
+    "imageUrl": "https://freepngimg.com/thumb/sushi/4-2-sushi-transparent.png"
   },
   {
     "name": "Double Cheese",
@@ -228,5 +228,27 @@
       "unit": "usd"
     },
     "imageUrl": "https://freepngimg.com/thumb/pizza/6-pizza-png-image.png"
+  },
+  {
+    "name": "Ice Tea",
+    "id": "101",
+    "weight": {
+      "value": 500,
+      "unit": "ml"
+    },
+    "ingredients": [
+      {
+        "name": "Pepsi",
+        "type": "drink",
+        "isNonVeg": "false",
+        "id": "111"
+      }
+    ],
+    "type": "drinks",
+    "cost": {
+      "value": 5.99,
+      "unit": "usd"
+    },
+    "imageUrl": "https://freepngimg.com/thumb/pepsi_logo/32615-8-pepsi-logo-hd.png"
   }
 ]

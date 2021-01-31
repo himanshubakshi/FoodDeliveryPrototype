@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
 
     // fetch latest offers
     private fun getOffers() {
-        weeklyOffersViewModel.getWeeklyOffers(this, false).observe(this, Observer { offers ->
+        weeklyOffersViewModel.getWeeklyOffers(this, true).observe(this, Observer { offers ->
             Log.d(TAG, "getOffers - weekly offers updated, offers: $offers")
 
             weeklyOffersViewPagerAdapter.update(offers)

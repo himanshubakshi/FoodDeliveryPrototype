@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.bakshi.himanshu.fooddeliveryprototype.data.models.Dish
 import com.bakshi.himanshu.fooddeliveryprototype.data.repository.DishesRepository
-import com.bakshi.himanshu.fooddeliveryprototype.data.service.DishesService
+import com.bakshi.himanshu.fooddeliveryprototype.data.service.DataService
 
 class DishesViewModel : ViewModel() {
-    private val dishesRepository = DishesRepository(DishesService.getService())
+    private val dishesRepository = DishesRepository(DataService.getService())
 
     // Returns a dishes LiveData object
     fun getDishes(context: Context, useMocks: Boolean = false) =

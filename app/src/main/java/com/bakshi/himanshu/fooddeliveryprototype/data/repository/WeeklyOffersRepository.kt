@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.bakshi.himanshu.fooddeliveryprototype.R
-import com.bakshi.himanshu.fooddeliveryprototype.data.interfaces.WeeklyOffersApi
+import com.bakshi.himanshu.fooddeliveryprototype.data.interfaces.DataApi
 import com.bakshi.himanshu.fooddeliveryprototype.data.models.WeeklyOffer
 import com.bakshi.himanshu.fooddeliveryprototype.utils.Constants
 import com.bakshi.himanshu.fooddeliveryprototype.utils.JsonUtils
@@ -15,7 +15,7 @@ import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.*
 
-class WeeklyOffersRepository(private val weeklyOffersApi: WeeklyOffersApi) {
+class WeeklyOffersRepository(private val dataApi: DataApi) {
 
     val TAG = WeeklyOffersRepository::class.java.simpleName
 
@@ -39,7 +39,7 @@ class WeeklyOffersRepository(private val weeklyOffersApi: WeeklyOffersApi) {
 
         getWeeklyOffersJob = CoroutineScope(Dispatchers.IO).launch {
 
-            val deferredResponse = async { weeklyOffersApi.getOffers() }
+            val deferredResponse = async { dataApi.getOffers() }
             val response = deferredResponse.await()
 
             if (response.isSuccessful) {
@@ -89,7 +89,6 @@ class WeeklyOffersRepository(private val weeklyOffersApi: WeeklyOffersApi) {
 
         return offers
     }
-
 
     private fun onOffersDownloaded(offers: List<WeeklyOffer>) {
         weeklyOffersLiveData.postValue(offers)

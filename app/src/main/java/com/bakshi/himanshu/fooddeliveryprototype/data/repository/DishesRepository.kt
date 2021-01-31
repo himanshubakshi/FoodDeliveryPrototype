@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.bakshi.himanshu.fooddeliveryprototype.R
-import com.bakshi.himanshu.fooddeliveryprototype.data.interfaces.DishesApi
+import com.bakshi.himanshu.fooddeliveryprototype.data.interfaces.DataApi
 import com.bakshi.himanshu.fooddeliveryprototype.data.models.Dish
 import com.bakshi.himanshu.fooddeliveryprototype.utils.Constants
 import com.bakshi.himanshu.fooddeliveryprototype.utils.JsonUtils
@@ -15,7 +15,7 @@ import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.*
 
-class DishesRepository(private val dishesApi: DishesApi) {
+class DishesRepository(private val dataApi: DataApi) {
 
     val TAG = DishesRepository::class.java.simpleName
 
@@ -39,7 +39,7 @@ class DishesRepository(private val dishesApi: DishesApi) {
 
         getDishesJob = CoroutineScope(Dispatchers.IO).launch {
 
-            val deferredResponse = async { dishesApi.getDishes() }
+            val deferredResponse = async { dataApi.getDishes() }
             val response = deferredResponse.await()
 
             if (response.isSuccessful) {

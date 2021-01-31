@@ -3,10 +3,10 @@ package com.bakshi.himanshu.fooddeliveryprototype.viewmodels
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.bakshi.himanshu.fooddeliveryprototype.data.repository.WeeklyOffersRepository
-import com.bakshi.himanshu.fooddeliveryprototype.data.service.WeeklyOffersService
+import com.bakshi.himanshu.fooddeliveryprototype.data.service.DataService
 
 class WeeklyOffersViewModel : ViewModel() {
-    private val weeklyOffersRepository = WeeklyOffersRepository(WeeklyOffersService.getService())
+    private val weeklyOffersRepository = WeeklyOffersRepository(DataService.getService())
 
     // Returns a weekly offers LiveData object
     fun getWeeklyOffers(context: Context, useMocks: Boolean = false) =
